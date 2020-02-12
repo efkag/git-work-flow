@@ -31,14 +31,14 @@ Creat branch and make feature changes
 ------------------------------------------------------------------------------
 #This assumes that your local master is up to date#
 git checkout -b exmp1			#Create new branch exmp1#
-(git ls-files				#check that the master branch files exist in the new branch#)
+git ls-files				#check that the master branch files exist in the new branch#
 gedit file_A				#edit the file and add more "Hello world" lines#
 gedit file_D				#Another new file#
 git add -u				#Update the modified file so that have already been tracked#
-git add -p				#Add all other files that you created#
+git add -p				#Option to add or remove modifications#
 git commit -m '3rd commit, 
 I modified a file and created a new one'	#Commit the new changes and write a meesage#
-git push -u origin exmp1		#Create a new remote branch and push the local update branch 						to it#
+git push -u origin example		#Create a new remote branch and push the local update branch 						to it#
 
 
 Merge new branch with master and push
@@ -50,11 +50,15 @@ git push				#Push merged changes to master#
 
 Pull request
 ------------------------------------------------------------------------------
+git checkout --track origin/example	# Clone remote branch to locale.
 git push origin head
 git checkout master
 git pull origin master
 > If this says no changes, then you're good, else look at how to fix merge conflicts
 > Head to https://github.com/username/the_repo and click create pull request where you can make a description/title/other markdown stuffs
+
+git chekcout master			#Checkout to mater to pull the new changes.
+git pull
 
 
 Demonstrating git reset (hard-DANGER!, mixed-safe) 
