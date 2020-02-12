@@ -75,13 +75,6 @@ git reset --mixed			#Resets to the last commit. All changes to old and new files
 git branch -a				#List all branches local, and remote#
 
 
-Git rebase 
-------------------------------------------------------------------------------	
-git checkout exmp1
-git diff master exmp1
-git pull --rebase origin master
-
-
 
 (Create ( ͡° ͜ʖ ͡°) and ) Resolve conflicts
 ------------------------------------------------------------------------------
@@ -111,6 +104,13 @@ git reset, git checkout,		#General action to take when confilcts arise i.e mergi
 
 gedit file_B				#Edit file_B to resolve the conflict#
 git commit -am 'file_B conflict resolved'	#Commit the eddited file to finish the process#
+
+
+Git rebase 
+------------------------------------------------------------------------------	
+git checkout exmp1
+git diff master exmp1
+git pull --rebase origin master
 
 
 
