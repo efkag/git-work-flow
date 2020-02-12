@@ -65,6 +65,21 @@ git diff master exmp1
 git pull --rebase origin master
 
 
+Collaborating on a repository you have access to
+----------------------------------------------------------------------------
+git clone https://github.com/username/the_repo
+cd the_repo
+git checkout -b my_feature
+gedit file_z
+git add file_z
+git commit -m "Added file_z"
+git push origin head
+git checkout master
+git pull origin master
+> If this says no changes, then you're good, else look at how to fix merge conflicts
+> Head to https://github.com/username/the_repo and click create pull request where you can make a description/title/other markdown stuffs
+
+
 (Create ( ͡° ͜ʖ ͡°) and ) Resolve conflicts
 ------------------------------------------------------------------------------
 git checkout -b conflict_demo		#Create an new branch and change to it#
