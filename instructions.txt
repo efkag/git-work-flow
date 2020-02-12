@@ -9,7 +9,12 @@ git commit -m 'intial commit'		#Commit changes to brach#
 git remote add origin https://github.com/efkag/git-work-flow.git
 git push --set-upstream origin master		#Tells git tat the upstream branch of the local 						branch is the master branch
 						then it pushed the commits to the master branch#
-						
+
+Clone repository
+----------------------------------------------------------------------------
+					#git clone https://github.com/username/the_repo
+git clone https://github.com/efkag/git-work-flow.git
+cd git-work-flow		 					
 
 
 Create more files and push to master
@@ -30,7 +35,7 @@ git checkout -b exmp1			#Create new branch exmp1#
 gedit file_A				#edit the file and add more "Hello world" lines#
 gedit file_D				#Another new file#
 git add -u				#Update the modified file so that have already been tracked#
-git add -A				#Add all other files that you created#
+git add -p				#Add all other files that you created#
 git commit -m '3rd commit, 
 I modified a file and created a new one'	#Commit the new changes and write a meesage#
 git push -u origin exmp1		#Create a new remote branch and push the local update branch 						to it#
@@ -42,6 +47,14 @@ git checkout master			#Change back to master so that you can pull the changes#
 git pull				#IMPORTANT-> Pull from master to make sure local is up to 						date#
 git pull origin exmp1			#Marge exmp1 into master#
 git push				#Push merged changes to master#
+
+Pull request
+------------------------------------------------------------------------------
+git push origin head
+git checkout master
+git pull origin master
+> If this says no changes, then you're good, else look at how to fix merge conflicts
+> Head to https://github.com/username/the_repo and click create pull request where you can make a description/title/other markdown stuffs
 
 
 Demonstrating git reset (hard-DANGER!, mixed-safe) 
@@ -64,20 +77,6 @@ git checkout exmp1
 git diff master exmp1
 git pull --rebase origin master
 
-
-Collaborating on a repository you have access to
-----------------------------------------------------------------------------
-git clone https://github.com/username/the_repo
-cd the_repo
-git checkout -b my_feature
-gedit file_z
-git add file_z
-git commit -m "Added file_z"
-git push origin head
-git checkout master
-git pull origin master
-> If this says no changes, then you're good, else look at how to fix merge conflicts
-> Head to https://github.com/username/the_repo and click create pull request where you can make a description/title/other markdown stuffs
 
 
 (Create ( ͡° ͜ʖ ͡°) and ) Resolve conflicts
