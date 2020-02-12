@@ -2,8 +2,8 @@ git init
 
 Set up intial files for Master branch
 ----------------------------------------------------------------------------
-gedit file_A				#Create file#
-git add file_A				#add to traceked files#
+gedit file_a				#Create file#
+git add file_a				#add to traceked files#
 git commit -m 'intial commit'		#Commit changes to brach#
 	
 git remote add origin https://github.com/efkag/git-work-flow.git
@@ -19,8 +19,8 @@ cd git-work-flow
 
 Create more files and push to master
 ---------------------------------------------------------------------------
-gedit file_B				#Create more files#
-gedit file_C				#Create#
+gedit file_b				#Create more files#
+gedit file_c				#Create#
 Git add -A				#Add all the new files to git tracking#
 git commit -m 'second commit' 		#Commit all the new chnages#
 git status				#If you check you can see that you are ahead of origin/master#
@@ -32,8 +32,8 @@ Creat branch and make feature changes
 #This assumes that your local master is up to date#
 git checkout -b exmp1			#Create new branch exmp1#
 git ls-files				#check that the master branch files exist in the new branch#
-gedit file_A				#edit the file and add more "Hello world" lines#
-gedit file_D				#Another new file#
+gedit file_a				#edit the file and add more "Hello world" lines#
+gedit file_d				#Another new file#
 git add -u				#Update the modified file so that have already been tracked#
 git add -p				#Option to add or remove modifications#
 git commit -m '3rd commit, 
@@ -64,12 +64,12 @@ git pull
 Demonstrating git reset (hard-DANGER!, mixed-safe) 
 ------------------------------------------------------------------------------
 git checkout exmp1			#Change to exmp1 branch#
-gedit file_B				#Edit file_B, add more "Hello world" lines#
+gedit file_b				#Edit file_b, add more "Hello world" lines#
 git add -u				#Update the modified file so that have already been tracked#
 git reset --hard			#Resets to the last commit. All changes to old and new files 						are discarted#
 
 
-gedit file_B				#Edit file_B, add more "Hello world" lines#
+gedit file_b				#Edit file_b, add more "Hello world" lines#
 git add -u				#Update the modified file so that have already been tracked#
 git reset --mixed			#Resets to the last commit. All changes to old and new files 						are unstaged i.e you need to excecute git add to stage them 						again.#
 git branch -a				#List all branches local, and remote#
@@ -79,14 +79,14 @@ git branch -a				#List all branches local, and remote#
 (Create ( ͡° ͜ʖ ͡°) and ) Resolve conflicts
 ------------------------------------------------------------------------------
 git checkout -b conflict_demo		#Create an new branch and change to it#
-gedit file_B				# Modify file_B (add a new word to the line)#
-git commit -am 'Modified file_B'	#Add and commit the new changes with a meesage#
+gedit file_b				# Modify file_b (add a new word to the line)#
+git commit -am 'Modified file_b'	#Add and commit the new changes with a meesage#
 git push -u origin conflict_demo	#Create a new remote branch and push the local branch to it#
 
 git checkout master			#Change back to master (run git status if you like)#
 git checkout -b conflict_demo2		#Create a new branch and change to it#
-gedit file_B				#Modify file_B (append to the end of the line)
-git commit -am 'Modified file_B'	#Add and commit the new changes with a meesage#
+gedit file_b				#Modify file_b (append to the end of the line)
+git commit -am 'Modified file_b'	#Add and commit the new changes with a meesage#
 git push -u origin conflict_demo2	#Create a new remote branch and push the local branch to it
 
 git checkout master			#Change back to master so that you can pull the changes#
@@ -97,13 +97,19 @@ git pull origin conflict_demo2		#Merge conflict_demo2 into master (Fails beacaus
 git status				#Check what happened, which files are in conflict#
 git checkout conflict_demo2		#Change back to conflict_demo2 to clear the conflict#
 
-cat file_B				#Check the file for the conflict markings#
+cat file_b				#Check the file for the conflict markings#
 git diff				#Another command to display modifications and conflicting 						lines#
 
 git reset, git checkout,		#General action to take when confilcts arise i.e merging git merge abort				fails#
 
-gedit file_B				#Edit file_B to resolve the conflict#
-git commit -am 'file_B conflict resolved'	#Commit the eddited file to finish the process#
+git checkout master
+git merge conflict_demo2
+gedit <file that's got a conflict>
+git add -A
+git merge --continue
+
+gedit file_b				#Edit file_b to resolve the conflict#
+git commit -am 'file_b conflict resolved'	#Commit the eddited file to finish the process#
 
 
 Git rebase 
